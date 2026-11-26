@@ -47,6 +47,11 @@ class AppChannelTiktokProfilesController extends Controller
                     return redirect( module_url("oauth") );
                 }
 
+                // The TikTok library validates the OAuth "state" against native $_SESSION,
+                // which Laravel does not use. Restore it from the Laravel session.
+                $_SESSION[TikTokLoginKit\Connector::SESS_STATE] = session('Tiktok_State');
+                $request->session()->forget('Tiktok_State');
+
                 $token = $this->tiktok->verifyCode( $request->code );
 
                 if ( $token->getAccessToken() ) 
@@ -130,6 +135,8 @@ class AppChannelTiktokProfilesController extends Controller
     {
         $request->session()->forget('Tiktok_AccessToken');
         $login_url = $this->tiktok->getRedirect(explode(',', $this->scopes));
+        // Persist the generated OAuth state in the Laravel session (see index()).
+        session(['Tiktok_State' => $_SESSION[TikTokLoginKit\Connector::SESS_STATE] ?? null]);
         return redirect($login_url);
     }
 
