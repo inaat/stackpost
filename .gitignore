@@ -20,3 +20,36 @@ yarn-error.log
 /.idea
 /.vscode
 /.zed
+
+# Laravel runtime files (logs, cache, sessions, compiled views)
+/storage/logs/*
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/storage/framework/testing/*
+/bootstrap/cache/*.php
+/installer/cache/*
+
+# User uploads (videos, avatars, watermarks)
+/storage/app/public/*
+/storage/app/private/*
+
+# Secrets & credentials
+.env.*
+!.env.example
+client_secret*.json
+*.pem
+*.p12
+*.key
+
+# Database dumps
+*.sql
+*.sql.gz
+
+# Archives & misc
+*.zip
+*.rar
+*.gif
+.DS_Store
+Thumbs.db
+

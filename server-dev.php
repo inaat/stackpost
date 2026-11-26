@@ -5,7 +5,7 @@
 $uri = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
 // Block sensitive files/dirs like .htaccess does
-if (preg_match('#(^|/)\.|^/(vendor|node_modules)/|^/(composer\.(json|lock)|package(-lock)?\.json|yarn\.lock|stackpost\.sql)$#i', $uri)) {
+if (preg_match('#(^|/)\.|^/(vendor|node_modules|storage/logs|storage/framework|bootstrap/cache)/|^/(composer\.(json|lock)|package(-lock)?\.json|yarn\.lock|stackpost\.sql)$#i', $uri)) {
     http_response_code(403);
     exit('Forbidden');
 }

@@ -93,5 +93,6 @@
     "PaymentStripe": true,
     "PaymentStripeRecurring": true,
     "AppSlimu": true,
-    "Payment.zip": true
+    "Payment.zip": true,
+    "AppChannelYoutubeChannels": true
 }

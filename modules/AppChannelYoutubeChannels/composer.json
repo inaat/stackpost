@@ -1,0 +1,15 @@
+{
+    "name": "stackposts/appchannelyoutubechannels",
+    "description": "YouTube channel integration",
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {}
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\AppChannelYoutubeChannels\\": "app/"
+        }
+    }
+}
